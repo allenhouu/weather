@@ -35,7 +35,7 @@ function App() {
               console.log(data)
           })
           .catch(err => console.log(err));
-  }, [location]);
+  }, [autoLocation]);
 
 
   return (
