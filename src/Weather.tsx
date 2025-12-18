@@ -7,6 +7,7 @@ export function Weather({weather}: {weather: weather}) {
 
     return(
         <>
+            <div>Current:</div>
             <div id='currentWeather'>
                 {weatherData.current.temperature_2m}
                 {weatherData.current.apparentWeather}
@@ -17,6 +18,8 @@ export function Weather({weather}: {weather: weather}) {
                 {weatherData.current.wind_speed_10m}
                 {weatherData.current.wind_gusts_10m}
             </div>
+
+            <div>Hourly:</div>
             {
                 weatherData.hourly.time.map((_item, i) =>
                     <div id="hourly" key={i}>
@@ -33,9 +36,10 @@ export function Weather({weather}: {weather: weather}) {
                         {weatherData.hourly.wind_speed_10m[i]},
                         {weatherData.hourly.wind_gusts_10m[i]}
                     </div>
-                    )
+                )
             }
 
+            <div>Daily:</div>
             {
                 weatherData.daily.time.map((_item, i) =>
                     <div id="daily" key={i}>

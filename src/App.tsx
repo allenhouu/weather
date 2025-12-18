@@ -2,6 +2,8 @@ import {useState} from 'react'
 import './App.css'
 import {useAutoComplete, useSearch, useCoordinates} from "./Hooks.ts";
 import {Weather} from "./Weather.tsx";
+import Input from "./prestylesearch.tsx";
+import Card from "./prestyleweather.tsx";
 
 function App() {
     const[currSearch, setCurrSearch] = useState<string>('Freehold Township, Nj');
@@ -10,13 +12,12 @@ function App() {
     const [latitude, longitude] = useSearch(search);
     const weather = useCoordinates(latitude, longitude);
 
+
   return (
       <>
-        <input placeholder="Type here to search" value={currSearch} onChange={e => setCurrSearch(e.target.value)}/>
-        <button onClick={() => {
-            setSearch(currSearch);
-        }
-        }>Search</button>
+          <Input currSearch={currSearch} setCurrSearch={setCurrSearch}></Input>
+          <Card></Card>
+
           {
           autoComplete.map((item, i) =>
           <div id="result" key={i}>
@@ -31,6 +32,8 @@ function App() {
           }
           <div id="coordinates">{latitude}, {longitude}</div>
           <div id="weather">{weather && <Weather weather={weather}/>}</div>
+
+
       </>
   )
 }
