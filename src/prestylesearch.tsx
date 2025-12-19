@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-
 
 
 export const Input = ({currSearch, setCurrSearch}: {currSearch: string, setCurrSearch: (s: string) => void}) => {

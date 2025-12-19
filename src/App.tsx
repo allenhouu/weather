@@ -6,8 +6,8 @@ import Input from "./prestylesearch.tsx";
 import Card from "./prestyleweather.tsx";
 
 function App() {
-    const[currSearch, setCurrSearch] = useState<string>('Freehold Township, Nj');
-    const[search, setSearch] = useState<string>('Freehold Township, NJ');
+    const[currSearch, setCurrSearch] = useState<string>('Freehold Township, NJ');
+    const[search, setSearch] = useState<string>('');
     const autoComplete = useAutoComplete(currSearch);
     const [latitude, longitude] = useSearch(search);
     const weather = useCoordinates(latitude, longitude);
@@ -16,8 +16,13 @@ function App() {
   return (
       <>
           <Input currSearch={currSearch} setCurrSearch={setCurrSearch}></Input>
-          <Card></Card>
 
+
+
+          <button onClick={() => {
+              setSearch(currSearch);
+          }
+          }>Search</button>
           {
           autoComplete.map((item, i) =>
           <div id="result" key={i}>
@@ -31,8 +36,9 @@ function App() {
           )
           }
           <div id="coordinates">{latitude}, {longitude}</div>
-          <div id="weather">{weather && <Weather weather={weather}/>}</div>
 
+          {weather && <Card weather={weather} currSearch={search} />}
+          {weather && <Weather weather={weather} />}
 
       </>
   )

@@ -63,12 +63,14 @@ export function useSearch(location: string) {
     const [search, setSearch] = useState<{lat: number, lon: number}>({lat: 0, lon: 0});
 
     useEffect(() => {
+        if(location.length > 0) {
             fetch('https://api.geoapify.com/v1/geocode/search?text=' + location + '&lang=en&limit=1&type=city&filter=countrycode:us&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658')
                 .then(res => res.json())
                 .then(data => {
                     setSearch(data.results[0]);
                 })
                 .catch(err => console.log(err));
+        }
     }, [location]);
 
     return [search.lat, search.lon];
