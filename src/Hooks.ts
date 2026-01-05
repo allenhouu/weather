@@ -12,7 +12,7 @@ export type weather = {
 }
 
 type weatherCurrent = {
-    apparentWeather: number;
+    apparent_temperature: number;
     interval: number;
     is_day: number;
     precipitation: number;

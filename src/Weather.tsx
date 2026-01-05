@@ -10,7 +10,7 @@ export function Weather({weather}: {weather: weather}) {
             <div>Current:</div>
             <div id='currentWeather'>
                 {weatherData.current.temperature_2m}
-                {weatherData.current.apparentWeather}
+                {weatherData.current.apparent_temperature}
                 {weatherData.current.is_day}
                 {weatherData.current.relative_humidity_2m}
                 {weatherData.current.weather_code}
@@ -25,7 +25,6 @@ export function Weather({weather}: {weather: weather}) {
                     <div id="hourly" key={i}>
                         {weatherData.hourly.apparent_temperature[i]},
                         {weatherData.hourly.is_day[i]},
-                        {weatherData.hourly.precipitation[i]},
                         {weatherData.hourly.precipitation[i]},
                         {weatherData.hourly.relative_humidity_2m[i]},
                         {weatherData.hourly.temperature_2m[i]},
