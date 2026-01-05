@@ -107,7 +107,7 @@ const Card = ({weather, currSearch}: {weather:weather, currSearch: string}) => {
                                             Actual Temperature: {weather.hourly.temperature_2m[i]} °F
                                             UV Index: {weather.hourly.uv_index[i]}
                                             Visibility: {weather.hourly.visibility[i]}ft
-                                            Wind: {weather.hourly.wind_speed_10m[i]} mph Bearing: {weather.hourly.wind_direction_10m[i]}°,
+                                            Wind: {weather.hourly.wind_speed_10m[i]} mph Bearing: {weather.hourly.wind_direction_10m[i]}°
                                             Gusts up to {weather.hourly.wind_gusts_10m[i]}mph
                                             </div>
                                         </div>
@@ -153,7 +153,6 @@ const Card = ({weather, currSearch}: {weather:weather, currSearch: string}) => {
                                         <span
                                             className="text-sm text-white/80">{weather.daily.temperature_2m_max[0]}°</span>
                                     </div>
-
                                 </div>
                             </div>
                             <div

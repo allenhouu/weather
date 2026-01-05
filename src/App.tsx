@@ -1,7 +1,6 @@
 import {useState} from 'react'
 import './App.css'
 import {useAutoComplete, useSearch, useCoordinates} from "./Hooks.ts";
-import {Weather} from "./Weather.tsx";
 import Input from "./prestylesearch.tsx";
 import Card from "./prestyleweather.tsx";
 
@@ -38,7 +37,6 @@ function App() {
           <div id="coordinates">{latitude}, {longitude}</div>
 
           {weather && <Card weather={weather} currSearch={search} />}
-          {weather && <Weather weather={weather} />}
 
       </>
   )
